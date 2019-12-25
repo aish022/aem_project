@@ -1,0 +1,116 @@
+<br/><br/><br/>
+-------------------------------------------
+<br/><br/><br/>
+<div data-sly-test="${wcmmode.edit}">
+	Show this in the edit mode to the author
+</div>
+
+-------------------------------------------
+<div data-sly-text="${wcmmode.edit}">
+</div>
+
+<br/><br/><br/>
+-------------------------------------------
+<br/><br/><br/>
+
+<div data-sly-test.obj="${wcmmode.edit || wcmmode.design}">
+	Show this to the author
+</div>
+<div data-sly-test="${!obj}">
+	Not in author mode anymore..
+</div>
+
+
+
+-------------------------------------------
+<br/><br/><br/>
+
+<div data-sly-text="${currentPage.title}">Mock page title</div>
+
+-------------------------------------------
+<br/><br/><br/>
+
+
+<ul data-sly-list.childObj="${currentPage.listChildren}">
+  <li>${childObj.title}</li>
+</ul>
+
+
+-------------------------------------------
+<br/><br/><br/>
+
+<ul data-sly-list="${currentPage.listChildren}">
+  <li><a href="${item.path}.html">${item.title}</a></li>
+</ul>
+
+
+-------------------------------------------
+<br/><br/><br/>
+
+<ul data-sly-list.childObj="${currentPage.listChildren}">
+  <li class="${ childObjList.odd ? 'odd' : 'even'}">${childObj.title}</li>
+</ul>
+-------------------------------------------
+<br/><br/><br/>
+
+
+-------------------------------------------
+
+
+
+
+<article data-sly-list="${currentPage.listChildren}">
+  <section>
+    <h1>${item.title}</h1>
+    <h2>${item.properties.subtitle}</h2>
+    <h3 data-sly-test="${item.listChildren}">This page has subpages</h3>
+      -------------------------------------------
+  </section>
+</article>
+
+-------------------------------------------
+
+
+<br/><br/><br/>
+
+
+<div data-sly-test.valid="${pageProperties.subtitle}">
+    ${pageProperties.subtitle}
+</div>
+<div data-sly-text="${!valid}"></div>
+<div data-sly-test="${!valid && wcmmode.edit}">Please enter a sub title for this page</div>
+
+-------------------------------------------
+data-sly-unwrap will hide the html container elements
+
+<ul data-sly-list.child="${currentPage.listChildren}" data-sly-unwrap="${wcmmode.edit}">
+  <li>${child.title}</li>
+</ul>
+
+-------------------------------------------
+<br/><br/><br/>
+
+
+data-sly-unwrap will hide the html container elements
+
+<ul data-sly-list.child="${currentPage.listChildren}" data-sly-unwrap>
+  <li>${child.title}</li>
+</ul>
+
+-------------------------------------------
+<br/><br/><br/>
+
+<sly data-sly-list.child="${currentPage.listChildren}">
+  <li>${child.title}</li>
+</sly>
+-------------------------------------------------------
+---------------------------------------------------------------
+
+<div data-sly-use.profileObj="${'com.mynovapp.novapp.core.use.ProfileUse'}">
+        <h1>My modified title is : ${profileObj.myTitle}</h1>
+</div>
+<div data-sly-use.profileObjName="${'com.mynovapp.novapp.core.use.ProfileUse' @fName='AEM developer', lName='Consultant'}">
+        <h1>My fullname is: ${profileObjName.myFullName}</h1>
+</div>
+
+<br/><br/>
